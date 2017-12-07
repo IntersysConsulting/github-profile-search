@@ -21,9 +21,9 @@ class NavBar extends Component {
     return (
       <div className="navbar">
         <Logo />
-        <Search />
-        <Search />
-        <Search />
+        <Search profile/>
+        <Search location/>
+        <Search followers/>
       </div>
     );
   }
