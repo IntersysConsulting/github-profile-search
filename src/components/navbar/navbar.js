@@ -23,7 +23,7 @@ class NavBar extends Component {
         <Logo />
         <Search profile/>
         <Search location/>
-        <Search followers/>
+        <Search username/>
       </div>
     );
   }

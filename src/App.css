@@ -53,6 +53,11 @@ p {
   font-family: Dosis,sans-serif;
 }
 
+.table {
+  padding: 20px;
+  color: black;
+}
+
 
 /* .App-logo {
   animation: App-logo-spin infinite 20s linear;

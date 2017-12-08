@@ -23,26 +23,28 @@ class Table extends Component {
             },
             {
               type: 'text',
-              readOnly: true
+              readOnly: false,
+              renderer: "html"
             },
             {
               type: 'text',
-              readOnly: true
+              readOnly: true,
+              renderer: "html"
             }
           ] 
         this.state = {
             value: 'Scala',
             columnHeaders: ['Profile','Location','Followers','GitHub User', 'Github Profile', 'Repositories'],
             columns: columnsConf,
-            followers: props.followers || null
+            data: [['Scale', 'Mexico','3','lordzero','<a href="https://github.com/lordzero0000"> lordzero0000 profile </a>','<a href="https://github.com/lordzero0000?tab=repositories">lordzero0000 repos</a>']]
         };
     };
 
   render() {
     return (
-        <div>
+        <div className='table'>
             <HotTable 
-                data={[['some', 'test','yes'], ['handsontable', 'data']]} 
+                data={this.state.data} 
                 contextMenu={false} 
                 colHeaders = {this.state.columnHeaders}
                 columns = {this.state.columns}
