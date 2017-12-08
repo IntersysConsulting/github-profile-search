@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import search from  '../../utils/github';
+
 
 class Search extends Component {
   constructor(props) {
@@ -8,7 +10,7 @@ class Search extends Component {
         value: 'Scala',
         profile: props.profile || null,
         location: props.location || null,
-        followers: props.followers || null
+        username: props.username || null
       };
 
     let state = this.state;
@@ -22,9 +24,9 @@ class Search extends Component {
       state.value =  'Mexico';
       state.label = 'Location'
     }
-    if (state.followers) {
-      state.value =  0;
-      state.label = 'Followers'
+    if (state.username) {
+      state.value =  'lordzero';
+      state.label = 'Username'
     }
   };
 
@@ -32,6 +34,8 @@ class Search extends Component {
     this.setState({
       value: event.target.value,
     }); 
+
+    search.searchByUserByLanguage('',this.state.value).then( res => console.log(res) );
   };    
 
   render() {
