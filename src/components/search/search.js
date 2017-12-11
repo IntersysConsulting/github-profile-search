@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import search from  '../../utils/github';
-
+import github from '../../utils/github';
 
 class Search extends Component {
   constructor(props) {
@@ -33,9 +32,16 @@ class Search extends Component {
   handleChange = (event) => {
     this.setState({
       value: event.target.value,
-    }); 
+    });
 
-    search.searchByUserByLanguage('',this.state.value).then( res => console.log(res) );
+    github.searchKK('javascript', 'guadalajara')
+      .then(i => {
+        i.json().then(json => {
+          console.log('Data:', json)
+        })
+      }).catch(err => {
+        console.log(err)
+      })
   };    
 
   render() {

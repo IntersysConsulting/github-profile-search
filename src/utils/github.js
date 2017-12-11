@@ -1,5 +1,5 @@
 const 
-  githubUrl = `https://api.github.com`
+  githubUrl = `https://api.github.com`,
   searchRequest = (typeSearch, query) => {
     return new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest()
@@ -22,5 +22,6 @@ const
 module.exports = {
   searchByUsername: name => searchRequest(`search/users`, `q=${name}`),
   searchByUserByLanguage: (name, language) => searchRequest(`search/users`, `q=${name}+language:${language}`),
-  searchByUserByLocation: (name, location) => searchRequest(`search/users`, `q=${name}+location:${location}`)
+  searchByUserByLocation: (name, location) => searchRequest(`search/users`, `q=${name}+location:${location}`),
+  searchByLanguageAndLocation: (language, location) => searchRequest(`search/users`, `q=language:${language}+location:${location}`)
 }
