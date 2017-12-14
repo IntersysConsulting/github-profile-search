@@ -33,15 +33,6 @@ class Search extends Component {
     this.setState({
       value: event.target.value,
     });
-
-    github.searchKK('javascript', 'guadalajara')
-      .then(i => {
-        i.json().then(json => {
-          console.log('Data:', json)
-        })
-      }).catch(err => {
-        console.log(err)
-      })
   };    
 
   render() {
