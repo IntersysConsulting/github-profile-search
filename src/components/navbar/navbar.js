@@ -3,20 +3,20 @@ import Search from '../search/search'
 import Logo from '../logo/logo'
 
 class NavBar extends Component {
-  constructor(props) {
-    super(props);
+//   constructor(props) {
+//     super(props);
 
-//     this.state = {
-//       value: 'Scala',
-//     };
-//   }
+// //     this.state = {
+// //       value: 'Scala',
+// //     };
+// //   }
 
-//   handleChange = (event) => {
-//     this.setState({
-//       value: event.target.value,
-//     });
+// //   handleChange = (event) => {
+// //     this.setState({
+// //       value: event.target.value,
+// //     });
     
-  };    
+//   };    
   render() {
     return (
       <div className="navbar">

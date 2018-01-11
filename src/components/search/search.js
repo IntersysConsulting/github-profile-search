@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import github from '../../utils/github';
+// import github from '../../utils/github';
 
 class Search extends Component {
   constructor(props) {
@@ -13,7 +13,7 @@ class Search extends Component {
       };
 
     let state = this.state;
-    let label;
+    // let label;
     
     if (state.profile) {
       state.value =  'Scala';
