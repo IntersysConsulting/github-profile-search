@@ -3,37 +3,39 @@ import React, { Component } from 'react';
 
 class Search extends Component {
   constructor(props) {
-    super(props);
-
-    this.state = {
-        value: 'Scala',
-        profile: props.profile || null,
-        location: props.location || null,
-        username: props.username || null
-      };
-
-    let state = this.state;
-    // let label;
+    super(props)
+    let state = {}
     
-    if (state.profile) {
-      state.value =  'Scala';
-      state.label = 'Profile'
+    switch (props.fieldType) {
+      case 'profile':
+        state.value =  'Scala'
+        state.label = 'Profile'
+        break
+
+      case 'location':
+        state.value =  'Mexico'
+        state.label = 'Location'
+        break
+
+      case 'username':
+      default:
+        state.value =  'lordzero'
+        state.label = 'Username'
+        break;
     }
-    if (state.location) {
-      state.value =  'Mexico';
-      state.label = 'Location'
-    }
-    if (state.username) {
-      state.value =  'lordzero';
-      state.label = 'Username'
-    }
+
+    this.state = state
   };
 
   handleChange = (event) => {
     this.setState({
       value: event.target.value,
     });
-  };    
+
+    if (typeof this.props.onChange === 'function') {
+      this.props.onChange(this.props.fieldType, event.target.value)
+    }
+  };
 
   render() {
     return (

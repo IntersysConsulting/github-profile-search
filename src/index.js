@@ -5,7 +5,6 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import configureStore from './redux/configureStore'
-import { getUser } from './redux/modules/github'
 
 const store = configureStore()
 ReactDOM.render(
@@ -16,5 +15,3 @@ ReactDOM.render(
 document.getElementById('root')
 )
 registerServiceWorker();
-
-store.dispatch( getUser() )

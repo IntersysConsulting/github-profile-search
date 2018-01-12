@@ -6,5 +6,22 @@ module.exports = {
   searchByUsername: name => fetchData(`search/users`, `q=${name}`),
   searchByUserByLanguage: (name, language) => fetchData(`search/users`, `q=${name}+language:${language}`),
   searchByUserByLocation: (name, location) => fetchData(`search/users`, `q=${name}+location:${location}`),
-  searchByLanguageAndLocation: (language, location) => fetchData(`search/users`, `q=language:${language}+location:${location}`)
+  searchByLanguageAndLocation: (language, location) => fetchData(`search/users`, `q=language:${language}+location:${location}`),
+  searchByAll: (name, location, language) => {
+
+    const queryItems = []
+    if (name) {
+      queryItems.push(name)
+    }
+
+    if (language) {
+      queryItems.push(`language:${language}`)
+    }
+
+    if (location) {
+      queryItems.push(`location:${location}`)
+    }
+
+    return fetchData(`search/users`, `q=${queryItems.join('+')}`)
+  }
 }
