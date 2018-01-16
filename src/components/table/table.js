@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import HotTable from 'react-handsontable';
+
 
 class Table extends Component {
     constructor(props) {
@@ -35,8 +37,7 @@ class Table extends Component {
         this.state = {
             value: 'Scala',
             columnHeaders: ['Profile','Location','Followers','GitHub User', 'Github Profile', 'Repositories'],
-            columns: columnsConf,
-            data: [['Scale', 'Mexico','3','lordzero','<a href="https://github.com/lordzero0000"> lordzero0000 profile </a>','<a href="https://github.com/lordzero0000?tab=repositories">lordzero0000 repos</a>']]
+            columns: columnsConf
         };
     };
 
@@ -44,7 +45,7 @@ class Table extends Component {
     return (
         <div className='table'>
             <HotTable 
-                data={this.state.data} 
+                data={this.props.data} 
                 contextMenu={false} 
                 colHeaders = {this.state.columnHeaders}
                 columns = {this.state.columns}
@@ -54,4 +55,9 @@ class Table extends Component {
   }
 }
 
-export default Table;
+function mapStateToProps({ github }) {
+  return { data: github.results }
+}
+
+
+export default connect(mapStateToProps, null)(Table);
