@@ -1,11 +1,13 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import HotTable from 'react-handsontable';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import HotTable from 'react-handsontable'
+import { Modal } from 'react-materialize'
 
+import Pagination from '../pagination/pagination'
 
 class Table extends Component {
     constructor(props) {
-        super(props);
+        super(props)
         const columnsConf = [
             { 
               type: 'text',
@@ -36,10 +38,10 @@ class Table extends Component {
           ] 
         this.state = {
             value: 'Scala',
-            columnHeaders: ['Profile','Location','Followers','GitHub User', 'Github Profile', 'Repositories'],
+            columnHeaders: ['Name','Location','Email','GitHub User', 'Github Profile', 'Repositories'],
             columns: columnsConf
-        };
-    };
+        }
+    }
 
   render() {
     return (
@@ -50,8 +52,9 @@ class Table extends Component {
                 colHeaders = {this.state.columnHeaders}
                 columns = {this.state.columns}
             />
+            <Pagination />
         </div>
-    );
+    )
   }
 }
 
@@ -60,4 +63,4 @@ function mapStateToProps({ github }) {
 }
 
 
-export default connect(mapStateToProps, null)(Table);
+export default connect(mapStateToProps, null)(Table)
